@@ -1,0 +1,14 @@
+{
+  "workbench.colorTheme": "Monokai Vibrant",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 1.6,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
