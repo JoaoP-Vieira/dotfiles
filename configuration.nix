@@ -74,7 +74,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim wget zsh firefox git discord kitty
+    vim wget zsh firefox git discord kitty vscode
   ];
 
   # Allow all licenses

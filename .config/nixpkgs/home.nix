@@ -16,10 +16,8 @@
   programs.neovim.enable = true;
   programs.neovim.viAlias = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
-    nodejs vscode
+    nodejs
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
