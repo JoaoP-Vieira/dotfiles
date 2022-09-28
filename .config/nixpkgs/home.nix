@@ -16,7 +16,7 @@
   programs.neovim.viAlias = true;
 
   home.packages = with pkgs; [
-    cowsay nodejs nodejs-16_x libsForQt5.qtstyleplugin-kvantum
+    cowsay nodejs
   ];
 
   programs.zsh = {
