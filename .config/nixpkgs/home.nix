@@ -17,15 +17,17 @@
   programs.neovim.viAlias = true;
 
   home.packages = with pkgs; [
-    nodejs
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   programs.zsh = {
     enable = true;
+
     initExtra = ''
       function mkcd () mkdir -p "$@" && eval cd "\"\$$#\""
+      function config_nix () vim /home/joao/.config/nixpkgs/home.nix 
     '';
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
@@ -82,5 +84,43 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [ vim-airline ];
     settings = { ignorecase = true; };
+  };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      alvarosannas.nix
+      bbenoist.nix
+      dbaeumer.vscode-eslint
+      dsznajder.es7-react-js-snippets
+      esbenp.prettier-vscode
+      jorgeserrano.vscode-csharp-snippets
+      ms-dotnettools.csharp
+      patcx.vscode-nuget-gallery
+    ];
+    userSettings = {
+      "git.enableSmartCommit" = true;
+      "git.autofetch" = true;
+      "workbench.colorTheme" = "Thanatos";
+      "editor.fontFamily" = "FiraCode Nerd Font";
+      "editor.fontLigatures" = true;
+      "editor.fontSize" = 16;
+      "editor.lineHeight" = 1.6;
+      "editor.tabSize" = 2;
+      "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[javascript]"."editor.formatOnSave" = true;
+      "[javascriptreact]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[javascriptreact]"."editor.formatOnSave" = true;
+      "[typescript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[typescript]"."editor.formatOnSave" = true;
+      "[typescriptreact]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[typescriptreact]"."editor.formatOnSave" = true;
+      "[csharp]"."editor.tabSize" = 4;
+      "[csharp]"."editor.defaultFormatter" = "ms-dotnettools.csharp";
+      "[csharp]"."editor.formatOnSave" = true;
+      "[xml]"."editor.tabSize" = 4;
+      "[dockerfile]"."editor.tabSize" = 4;
+      "[razor]"."editor.tabSize" = 4;
+    };
   };
 }
