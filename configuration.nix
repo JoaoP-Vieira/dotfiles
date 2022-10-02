@@ -68,14 +68,16 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.joao = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" "kvm" "nixbld" ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim wget zsh firefox git discord kitty vscode
+    vim wget zsh firefox git discord kitty vscode gnome3.gnome-tweaks
   ];
+
+  virtualisation.docker.enable = true;
 
   # Allow all licenses
   nixpkgs.config = {
